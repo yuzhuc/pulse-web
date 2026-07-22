@@ -1,0 +1,57 @@
+name: Deploy standalone to build branch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun dependencies
+        id: cache-deps
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules
+            ~/.bun
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies with Bun
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Build Next.js app with Bun
+        run: bun run build
+
+      - name: Copy build artifacts to standalone directory
+        run: bun run copy
+
+      - name: Deploy to build branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: standalone
+          branch: build
+          clean: true
+          clean-exclude: |
+            README.md
+            LICENSE.txt
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com

@@ -1,0 +1,13 @@
+services:
+  Pulse-web-standalone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pulse-web-image
+    container_name: pulse-web-container
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

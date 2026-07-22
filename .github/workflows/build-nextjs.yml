@@ -1,0 +1,109 @@
+name: Build and Upload to Releases CI
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  VERSION_PREFIX: v0.1
+  PACKAGE_PREFIX: pulse-web
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun dependencies
+        id: cache-deps
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules
+            ~/.bun
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies with Bun
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: bun install --frozen-lockfile
+
+      - name: Build Next.js app with Bun
+        run: bun run build
+
+      - name: Copy build artifacts to standalone directory
+        run: bun run copy
+
+      - name: Calculate version
+        id: version
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const prefix = process.env.VERSION_PREFIX;
+            console.log(`版本前缀: ${prefix}`);
+
+            const { data: releases } = await github.rest.repos.listReleases({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 100
+            });
+
+            const regex = new RegExp(`^${prefix}\\.(\\d+)$`);
+            let maxPatch = 0;
+            for (const release of releases) {
+              const match = release.tag_name.match(regex);
+              if (match) {
+                const patch = parseInt(match[1], 10);
+                if (patch > maxPatch) {
+                  maxPatch = patch;
+                }
+              }
+            }
+
+            const nextPatch = maxPatch + 1;
+            const newVersion = `${prefix}.${nextPatch}`;
+            console.log(`新版本: ${newVersion}`);
+            core.setOutput('new_version', newVersion);
+
+      - name: Package into multiple formats
+        run: |
+          VERSION="${{ steps.version.outputs.new_version }}"
+          PREFIX="${{ env.PACKAGE_PREFIX }}"
+          SOURCE_DIR="./standalone"
+
+          # .tar.gz
+          tar -czf "${PREFIX}-${VERSION}.tar.gz" -C "$SOURCE_DIR" .
+
+          # .zip
+          (cd "$SOURCE_DIR" && zip -q -r "../${PREFIX}-${VERSION}.zip" .)
+
+          # .7z
+          sudo apt-get update && sudo apt-get install -y p7zip-full
+          (cd "$SOURCE_DIR" && 7z a -bd "../${PREFIX}-${VERSION}.7z" . > /dev/null)
+
+      - name: Create Release and upload assets
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.version.outputs.new_version }}
+          name: Release ${{ steps.version.outputs.new_version }}
+          files: |
+            ${{ env.PACKAGE_PREFIX }}-${{ steps.version.outputs.new_version }}.tar.gz
+            ${{ env.PACKAGE_PREFIX }}-${{ steps.version.outputs.new_version }}.zip
+            ${{ env.PACKAGE_PREFIX }}-${{ steps.version.outputs.new_version }}.7z
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

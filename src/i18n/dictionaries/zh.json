@@ -1,0 +1,22 @@
+{
+	"site": {
+		"dashboard": "仪表盘",
+		"home": "首页",
+		"title": {
+			"home": "首页",
+			"dashboard": "仪表板"
+		},
+		"description": {
+			"home": "欢迎来到我的个人主页",
+			"dashboard": "欢迎来到我的仪表板"
+		}
+	},
+	"home": {
+		"greeting": "你好，{name}！",
+		"intro": "欢迎来到我的网站"
+	},
+	"dashboard": {
+		"greeting": "仪表板",
+		"intro": "欢迎来到我的仪表板"
+	}
+}
