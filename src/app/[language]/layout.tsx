@@ -21,8 +21,8 @@ const domain = process.env.NEXT_PUBLIC_SITE_DOMAIN || "";
 export const metadata: Metadata = {
 	metadataBase: domain ? new URL(`https://${domain}`) : undefined,
 	title: {
-		template: 'Bun-Next | %s',
-		default: 'Bun-Next',
+		template: 'Pulse | %s',
+		default: 'Pulse',
 	},
 };
 

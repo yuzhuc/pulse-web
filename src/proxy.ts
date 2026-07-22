@@ -24,10 +24,10 @@ function getLocale(request: NextRequest): Locale {
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Check if accessing /{language} directly, redirect to /{language}/dashboard
+  // Check if accessing /{language} directly, redirect to /{language}/home
   const localeOnlyMatch = locales.find((locale) => pathname === `/${locale}`);
   if (localeOnlyMatch) {
-    request.nextUrl.pathname = `/${localeOnlyMatch}/dashboard`;
+    request.nextUrl.pathname = `/${localeOnlyMatch}/home`;
     return NextResponse.redirect(request.nextUrl);
   }
 
@@ -40,9 +40,9 @@ export function proxy(request: NextRequest) {
 
   const locale = getLocale(request);
 
-  // Redirect root to /{language}/dashboard
+  // Redirect root to /{language}/home
   if (pathname === "/") {
-    request.nextUrl.pathname = `/${locale}/dashboard`;
+    request.nextUrl.pathname = `/${locale}/home`;
   } else {
     request.nextUrl.pathname = `/${locale}${pathname}`;
   }

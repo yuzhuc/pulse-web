@@ -2,6 +2,9 @@ name: Deploy standalone to build branch
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
