@@ -1,0 +1,8 @@
+{
+  "/[language]/dashboard/page": "/[language]/dashboard",
+  "/[language]/home/page": "/[language]/home",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml"
+}

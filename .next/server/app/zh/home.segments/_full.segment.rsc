@@ -1,0 +1,28 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/1q0h0ctd2pmp1.js"],"default"]
+3:I[37457,["/_next/static/chunks/1q0h0ctd2pmp1.js"],"default"]
+6:I[97367,["/_next/static/chunks/1q0h0ctd2pmp1.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+d:I[97367,["/_next/static/chunks/1q0h0ctd2pmp1.js"],"ViewportBoundary"]
+f:I[97367,["/_next/static/chunks/1q0h0ctd2pmp1.js"],"MetadataBoundary"]
+11:I[68027,[],"default",1]
+14:I[77527,["/_next/static/chunks/3ma3vwdwt1rqy.js"],"I18nProvider"]
+:HL["/_next/static/chunks/3r_9r0zt58qes.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","zh","home"],"q":"","i":false,"f":[[["",{"children":[["language","zh","d",null],{"children":["home",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16]}],[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3r_9r0zt58qes.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3ma3vwdwt1rqy.js","async":true,"nonce":"$undefined"}]],"$L4"]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L5",null,["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],{},null,true,"$@9"]},null,true,"$@a"]},null,true,"$@b"]},null,true,"$@c"],["$","$1","h",{"children":[null,["$","$Ld",null,{"children":"$Le"}],["$","div",null,{"hidden":true,"children":["$","$Lf",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":"$L10"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],true]],"m":"$undefined","G":["$11",[]],"S":true,"h":"$@12","s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"xTuJuq-E6PeAX2iKFCUP8"}
+13:[]
+c:"$W13"
+4:["$","html",null,{"lang":"zh","className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased","children":["$","body",null,{"className":"relative","children":["$","$L14",null,{"locale":"zh","dictionary":{"site":{"dashboard":"仪表盘","home":"首页","title":{"home":"首页","dashboard":"仪表板"},"description":{"home":"欢迎来到我的个人主页","dashboard":"欢迎来到我的仪表板"}},"home":{"greeting":"你好，{name}！","intro":"欢迎来到我的网站"},"dashboard":{"greeting":"仪表板","intro":"欢迎来到我的仪表板"}},"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
+5:["$","div",null,{"children":[["$","h1",null,{"children":"你好，访客！"}],["$","p",null,{"children":"欢迎来到我的网站"}]]}]
+e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+10:[["$","title","0",{"children":"Pulse | 首页"}],["$","meta","1",{"name":"description","content":"欢迎来到我的个人主页"}],["$","link","2",{"rel":"canonical","href":"/zh/home"}],["$","link","3",{"rel":"alternate","hrefLang":"en","href":"/en/zh/home"}],["$","link","4",{"rel":"alternate","hrefLang":"zh","href":"/zh/zh/home"}],["$","link","5",{"rel":"alternate","hrefLang":"ja","href":"/ja/zh/home"}],["$","link","6",{"rel":"alternate","hrefLang":"x-default","href":"/en/zh/home"}],["$","meta","7",{"property":"og:title","content":"首页"}],["$","meta","8",{"property":"og:description","content":"欢迎来到我的个人主页"}],["$","meta","9",{"property":"og:url","content":"/zh/home"}],["$","meta","10",{"property":"og:type","content":"website"}],["$","meta","11",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","12",{"name":"twitter:title","content":"首页"}],["$","meta","13",{"name":"twitter:description","content":"欢迎来到我的个人主页"}]]
+15:["language"]
+12:"$W15"
+16:["language"]
+9:"$W16"
+17:[]
+a:"$W17"
+18:["language"]
+b:"$W18"
